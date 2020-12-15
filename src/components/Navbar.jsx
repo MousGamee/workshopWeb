@@ -3,17 +3,19 @@ import './Navbar.css'
 import PersonIcon from '@material-ui/icons/Person';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import SearchIcon from '@material-ui/icons/Search';
+import Searchbar from './Searchbar';
 
 const Navbar = () => {
     return (
     <>
+        {/* navigation web */}
         <nav className="d-none d-md-block">
             <div className="container-fluid d-flex justify-content-between align-items-center">
                 <a href="#" className="logo">
                     <img src="https://png.pngtree.com/element_pic/00/16/07/115783931601b5c.jpg" alt="" style={{width : 70}}/>
                 </a>
                 <div className="searchBar">
-                    <input type="text" name="" id=""/>
+                    <Searchbar />
                 </div>
                 <div className="menu">
                     <ul className=" d-flex">
@@ -23,7 +25,14 @@ const Navbar = () => {
                 </div>
             </div>
         </nav>
-        <nav className="d-block d-md-none">
+
+        {/* mobile searchBar */}
+        <div className="mobileSearch d-flex d-md-none justify-content-center align-items-center">
+            <Searchbar />
+        </div>
+
+        {/* mobile bottom tab */}
+        <nav className="d-block d-md-none mobileBottomTab">
             <div className="container-fluid d-flex align-items-center justify-content-center">
                 <ul className="d-flex justify-content-center bottomTab">
                     <li><SearchIcon style={{fontSize : 30}}/><p>Recherche</p></li>
