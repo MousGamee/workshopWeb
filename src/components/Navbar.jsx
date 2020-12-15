@@ -4,6 +4,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import SearchIcon from '@material-ui/icons/Search';
 import Searchbar from './Searchbar';
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
@@ -11,16 +12,16 @@ const Navbar = () => {
         {/* navigation web */}
         <nav className="d-none d-md-block">
             <div className="container-fluid d-flex justify-content-between align-items-center">
-                <a href="#" className="logo">
-                    <img src="https://png.pngtree.com/element_pic/00/16/07/115783931601b5c.jpg" alt="" style={{width : 70}}/>
-                </a>
+                <Link to="/" className="logo">
+                    <img src="img/logo.png" alt="" style={{width : 150}}/>
+                </Link>
                 <div className="searchBar">
                     <Searchbar />
                 </div>
                 <div className="menu">
                     <ul className=" d-flex">
-                        <li><a href="#" className="mr-4">Connection</a></li>
-                        <li><a href="#">Inscritpion</a></li>
+                        <li><Link to="/Connection" className="mr-4">Connection</Link></li>
+                        <li><Link to="/Inscritpion">Inscritpion</Link></li>
                     </ul>
                 </div>
             </div>

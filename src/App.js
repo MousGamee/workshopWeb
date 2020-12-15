@@ -11,17 +11,15 @@ import SignUp from './pages/SignUp';
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Router>
+    <> 
+    <Router>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/Connection" component={SignIn} />
           <Route path="/Inscritpion" component={SignUp} />
           <Route component={Page404} />
         </Switch>
-      </Router>
-      <Footer />
+    </Router>
     </>
   );
 }
