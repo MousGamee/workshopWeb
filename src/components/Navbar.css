@@ -1,0 +1,19 @@
+.bottomTab{
+    bottom: 0;
+    position: absolute;
+    background-color: aliceblue;
+    width: 100vw;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.bottomTab li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding : 10px 10px 0 10px
+}
+
+.bottomTab li p {
+    font-size: 10px;
+}
