@@ -4,3 +4,7 @@
     background-size: cover;
 
 }
+/**** card ***/
+.classCard img {
+    width: 100%;
+}
