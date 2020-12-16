@@ -1,5 +1,6 @@
 import React from 'react'
 import Footer from '../components/Footer'
+import MobileSearchbar from '../components/MobileSearchbar'
 import Navbar from '../components/Navbar'
 import './Home.css'
 
@@ -7,6 +8,7 @@ const Home = () => {
     return (
         <>
          <Navbar />
+         <MobileSearchbar />
         <div className="landing">
            
         </div>

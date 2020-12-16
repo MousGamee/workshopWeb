@@ -1,13 +1,13 @@
 import React from 'react'
 import MobileNavbar from '../components/MobileNavbar'
 
-const SignUp = () => {
+const Favoris = () => {
     return (
-        <div>
-            Inscritpion
+        <>
+            Favoris
             <MobileNavbar />
-        </div>
+        </>
     )
 }
 
-export default SignUp
+export default Favoris

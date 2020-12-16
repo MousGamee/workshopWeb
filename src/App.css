@@ -14,3 +14,17 @@ ul, li {
 a{
   text-decoration: none;
 }
+
+/***** colors ****/
+
+.color-lightgrey {
+  color: #707070;
+}
+
+.color-blue {
+  color: #34668D;
+}
+
+.color-lightblue {
+  color: #1D90E8;
+}
