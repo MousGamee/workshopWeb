@@ -1,8 +1,5 @@
 import React from 'react'
 import './Navbar.css'
-import PersonIcon from '@material-ui/icons/Person';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import SearchIcon from '@material-ui/icons/Search';
 import Searchbar from './Searchbar';
 import { Link } from 'react-router-dom'
 import MobileNavbar from './MobileNavbar';
