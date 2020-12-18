@@ -25,8 +25,11 @@ const SignUp = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        const {email, mdp } = userData
+        const {email, mdp, name } = userData
         firebase.singUpUser(email, mdp)
+        .thne((authUser ) => {
+
+        })
             .then( user => {
                 setUserData({...data})
                 props.history.push('/')
