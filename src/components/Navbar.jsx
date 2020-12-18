@@ -8,7 +8,7 @@ const Navbar = () => {
     return (
     <>
         {/* navigation web */}
-        <nav className="d-none d-md-block pt-2">
+        <nav className="d-none d-md-block pt-2 shadow-sm position-fixed navbarWeb bg-white">
             <div className="container-fluid d-flex justify-content-between align-items-center">
                 <Link to="/" className="logo">
                     <img src="img/logo-2.png" alt="" style={{width : 150}}/>
