@@ -11,7 +11,7 @@ const Favoris = () => {
          <MobileNavbar />
          <Navbar />
           <div className="container">
-              <div className="d-flex flex-column favoris">
+              <div className="d-flex flex-column paddingNavbar">
                 <h2>Enregistrés</h2>
                 <Link to='/Connection'><button className="btn btn-secondary mt-2">Connexion</button></Link>
                 <hr/>
