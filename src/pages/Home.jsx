@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Footer from '../components/Footer'
 import MobileSearchbar from '../components/MobileSearchbar'
 import Navbar from '../components/Navbar'
@@ -8,11 +8,14 @@ import HomeCard from '../components/HomeCard'
 
 
 const Home = () => {
+    const [userSession, setUserSession] = useState(true)
+
+    
     return (
         <>
          <Navbar />
          <MobileSearchbar />
-
+       
         <div className="landing mb-4" style={{backgroundImage : `url(${bkg})`, backgroundPosition : 'center'}}>
         </div>
 
