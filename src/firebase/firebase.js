@@ -27,6 +27,9 @@ class Firebase {
 
     //deconnection
     logOutUser = () => this.auth.signOut()
+
+    //mot de passe oublié
+    forgotPassword = email => this.auth.sendPasswordResetEmail(email)
     
 }
 

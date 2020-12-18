@@ -10,7 +10,6 @@ import HomeCard from '../components/HomeCard'
 const Home = () => {
     const [userSession, setUserSession] = useState(true)
 
-    
     return (
         <>
          <Navbar />
