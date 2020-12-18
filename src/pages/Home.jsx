@@ -17,7 +17,7 @@ const Home = () => {
         </div>
 
         <div className="currentClass">
-            <div className="container-fluid">
+            <div className="container">
                 <div className="row">
                 
                   <HomeCard />
