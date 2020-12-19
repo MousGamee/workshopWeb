@@ -50,3 +50,18 @@
 }
 
 
+/***** web navbar ***/
+.navbarWeb {
+    width: 100%;
+}
+
+.menu-profil {
+    position: absolute;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    right: -47%;
+    padding: 10px;
+
+}

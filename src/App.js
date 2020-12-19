@@ -6,6 +6,8 @@ import SignIn from './pages/SignIn';
 import Page404 from './pages/Page404';
 import SignUp from './pages/SignUp';
 import Favoris from './pages/Favoris';
+import ForgotPassword from './pages/ForgotPassword';
+import Profil from './pages/Profil';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path="/Connection" component={SignIn} />
           <Route path="/Inscritpion" component={SignUp} />
           <Route path="/Favoris" component={Favoris} />
+          <Route path="/Profil" component={Profil} />
+          <Route path="/Mot-de-passe-oublie" component={ForgotPassword} />
           <Route component={Page404} />
         </Switch>
     </Router>

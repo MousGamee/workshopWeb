@@ -15,6 +15,17 @@ a{
   text-decoration: none;
 }
 
+/** padding navbar */
+.paddingNavbar {
+  padding-top: 95px;
+}
+
+@media screen and (max-width: 767px) {
+  .paddingNavbar {
+      padding-top: 20px;
+  }
+}
+
 /***** colors ****/
 
 .color-lightgrey {
