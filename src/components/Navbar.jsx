@@ -60,8 +60,8 @@ const Navbar = (props) => {
                                     <>
                                         <div class="dropdown ">
                                             <AccountCircleIcon style={{ fontSize: 40, color: 'lightgrey' }} />
-                                            <p>bonjour {userData.name} !</p>
-                                            <button className="btn btn-danger" onClick={handleClick}>deconnection</button>
+                                            {/* <p>bonjour {userData.name} !</p>
+                                            <button className="btn btn-danger" onClick={handleClick}>deconnection</button> */}
                                         </div>
                                     </>
                                 )

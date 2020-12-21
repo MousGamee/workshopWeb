@@ -4,7 +4,6 @@ import Navbar from '../components/Navbar'
 import { Link } from 'react-router-dom'
 import { FirebaseContext } from '../firebase'
 
-
 const SignIn = (props) => {
 
     const firebase = useContext(FirebaseContext)
