@@ -5,43 +5,18 @@ import { Link } from 'react-router-dom'
 import MobileNavbar from './MobileNavbar';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { FirebaseContext } from '../firebase';
+import { WorkshopContext } from '../firebase/workshopContext';
 
 
-const Navbar = (props) => {
+const Navbar = ({showNavbar}) => {
 
     const firebase = useContext(FirebaseContext)
-    const [userSession, setUserSession] = useState(null)
-    const [userData, setUserData] = useState({})
+    const {userSession, userData, } = useContext(WorkshopContext)
     const [menuIsOpen, setMenuIsOpen] = useState(false)
 
     const handleClick = () => {
         firebase.logOutUser()
     }
-
-    useEffect(() => {
-        let listner = firebase.auth.onAuthStateChanged(user => {
-            user ? setUserSession(user) : setUserSession(null)
-        })
-
-        if(!!userSession ){
-            firebase.user(userSession.uid)
-            .get()
-            .then(doc => {
-                if(doc && doc.exists){
-                    const myData = doc.data()
-                    setUserData(myData)
-                    console.log('userData => ', userData)
-                }
-            })
-            .catch(error => {
-                console.log(error)
-            })
-        }
-       
-        return () => {
-            listner()
-        }
-    }, [userSession])
 
     return (
         <>
@@ -51,7 +26,7 @@ const Navbar = (props) => {
                     <Link to="/" className="logo">
                         <img src="img/logo-2.png" alt="" style={{ width: 150 }} />
                     </Link>
-                    <div className="searchBar">
+                    <div className="searchBar" style={{display : showNavbar ? 'block' : 'none'}}>
                         <Searchbar />
                     </div>
                     <div className="menu">

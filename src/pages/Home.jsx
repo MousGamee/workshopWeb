@@ -12,6 +12,7 @@ const Home = () => {
     
     const [userSession, setUserSession] = useState(true)
     const firebase = useContext(FirebaseContext)
+    const [showNavbar,setShowNavbar] = useState(true)
 
     useEffect(() => {
 
@@ -23,7 +24,7 @@ const Home = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar showNavbar={showNavbar}/>
             <MobileSearchbar />
 
             <div className="landing mb-4" style={{ backgroundImage: `url(${bkg})`, backgroundPosition: 'center' }}>

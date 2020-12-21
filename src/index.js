@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Firebase, { FirebaseContext } from './firebase';
+import WorkshopContextProvider from './firebase/workshopContext';
 
 
 ReactDOM.render(
   <React.StrictMode>
     <FirebaseContext.Provider value={new Firebase()}>
+      <WorkshopContextProvider>
         <App />
+      </WorkshopContextProvider>
     </FirebaseContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')

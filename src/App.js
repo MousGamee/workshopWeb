@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import React, { useEffect, useContext } from 'react';
 import './App.css';
 import Home from './pages/Home';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
@@ -8,8 +8,40 @@ import SignUp from './pages/SignUp';
 import Favoris from './pages/Favoris';
 import ForgotPassword from './pages/ForgotPassword';
 import Profil from './pages/Profil';
+import { FirebaseContext } from './firebase';
+import { WorkshopContext } from './firebase/workshopContext';
 
-function App() {
+
+const App = () => {
+
+  const firebase = useContext(FirebaseContext)
+  const {userSession, setUserSession, userData, setUserData } = useContext(WorkshopContext)
+  
+  useEffect(() => {
+    let listner = firebase.auth.onAuthStateChanged(user => {
+        user ? setUserSession(user) : setUserSession(null)
+    })
+
+    if(!!userSession ){
+        firebase.user(userSession.uid)
+        .get()
+        .then(doc => {
+            if(doc && doc.exists){
+                const myData = doc.data()
+                setUserData(myData)
+                console.log('userData => ', userData)
+            }
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }
+   
+    return () => {
+        listner()
+    }
+}, [userSession])
+
   return (
     <> 
     <Router>

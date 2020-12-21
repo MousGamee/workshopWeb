@@ -11,7 +11,9 @@ const SignUp = (props) => {
         name: '',
         email: '',
         mdp: '',
-        confirmMdp: ''
+        confirmMdp: '',
+        description : '',
+        localisation : ''
     }
 
     const [userData, setUserData] = useState(data)
@@ -24,13 +26,15 @@ const SignUp = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        const { email, mdp, name } = userData
+        const { email, mdp, name, description, localisation } = userData
         firebase.singUpUser(email, mdp)
             .then(authUser => {
                 console.log(authUser)
                 return firebase.user(authUser.user.uid).set({
                     name,
-                    email
+                    email,
+                    description,
+                    localisation
                 })
             })
             .then(() => {

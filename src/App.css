@@ -17,7 +17,7 @@ a{
 
 /** padding navbar */
 .paddingNavbar {
-  padding-top: 95px;
+  padding-top: 120px;
 }
 
 @media screen and (max-width: 767px) {
