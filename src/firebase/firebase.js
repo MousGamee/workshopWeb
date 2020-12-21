@@ -12,6 +12,7 @@ const config = {
         appId: "1:698534577945:web:5e68806b462a9bae72a788",
         measurementId: "G-NQJ49F42XL"  
 }
+
 class Firebase {
     constructor() {
         app.initializeApp(config)
@@ -35,6 +36,7 @@ class Firebase {
 
     user = uid => this.db.doc(`Users/${uid}`)
     
+    cours = () => this.db.doc('Cours/pGl9JiLAMlLlQHPrhApV')
 }
 
 export default Firebase

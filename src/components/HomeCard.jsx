@@ -2,8 +2,8 @@ import React from 'react'
 
 const HomeCard = () => {
     return (
-        <div className="col-12 col-md-6 col-lg-4 classCard mb-2 rounded">
-            <img src="img/image1.jpg" className="img-fluid" alt="" />
+        <div className="col-12 col-md-6 col-lg-4 classCard mb-2 rounded bg-white">
+            <img src="img/image1.jpg" className="img-fluid p-1" alt="" />
             <div className="description p-2">
                 <div className="d-flex align-items-center justify-content-between">
                     <h4 className="title">Ma classe</h4>

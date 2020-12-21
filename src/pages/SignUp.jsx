@@ -27,6 +27,7 @@ const SignUp = (props) => {
         const { email, mdp, name } = userData
         firebase.singUpUser(email, mdp)
             .then(authUser => {
+                console.log(authUser)
                 return firebase.user(authUser.user.uid).set({
                     name,
                     email

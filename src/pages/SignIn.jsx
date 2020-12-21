@@ -25,7 +25,6 @@ const SignIn = (props) => {
         e.preventDefault()
         firebase.logInUser(email, mdp)
             .then(user => {
-                console.log(user)
                 setEmail('')
                 setMdp('')
                 props.history.push('/')

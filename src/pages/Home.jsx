@@ -1,14 +1,25 @@
-import React, { useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import Footer from '../components/Footer'
 import MobileSearchbar from '../components/MobileSearchbar'
 import Navbar from '../components/Navbar'
 import './Home.css'
 import bkg from '../images/afroNationCover.jpg'
 import HomeCard from '../components/HomeCard'
+import { FirebaseContext } from '../firebase'
 
 
 const Home = () => {
+    
     const [userSession, setUserSession] = useState(true)
+    const firebase = useContext(FirebaseContext)
+
+    useEffect(() => {
+
+        return () => {
+            
+        }
+
+    }, [])
 
     return (
         <>

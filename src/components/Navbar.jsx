@@ -11,6 +11,7 @@ const Navbar = (props) => {
 
     const firebase = useContext(FirebaseContext)
     const [userSession, setUserSession] = useState(null)
+    const [userData, setUserData] = useState({})
 
     const handleClick = () => {
         firebase.logOutUser()
@@ -21,10 +22,25 @@ const Navbar = (props) => {
             user ? setUserSession(user) : setUserSession(null)
         })
 
+        if(!!userSession ){
+            firebase.user(userSession.uid)
+            .get()
+            .then(doc => {
+                if(doc && doc.exists){
+                    const myData = doc.data()
+                    setUserData(myData)
+                    console.log('userData => ', userData)
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        }
+       
         return () => {
             listner()
         }
-    }, [])
+    }, [userSession])
 
     return (
         <>
@@ -44,6 +60,7 @@ const Navbar = (props) => {
                                     <>
                                         <div class="dropdown ">
                                             <AccountCircleIcon style={{ fontSize: 40, color: 'lightgrey' }} />
+                                            <p>bonjour {userData.name} !</p>
                                             <button className="btn btn-danger" onClick={handleClick}>deconnection</button>
                                         </div>
                                     </>
