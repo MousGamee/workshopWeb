@@ -29,7 +29,6 @@ const App = () => {
             if(doc && doc.exists){
                 const myData = doc.data()
                 setUserData(myData)
-                console.log('userData => ', userData)
             }
         })
         .catch(error => {

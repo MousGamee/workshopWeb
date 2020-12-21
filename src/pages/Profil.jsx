@@ -10,23 +10,42 @@ import './Profil.css'
 
 const Profil = (props) => {
     const firebase = useContext(FirebaseContext)
-    const [userSession, setUserSession] = useState(null)
     const { userData } = useContext(WorkshopContext)
+    const [userSession, setUserSession] = useState(null)
+    const [description, setdescription] = useState(userData.description)
+   
     const [isEdit, setIsEdit] = useState(false)
 
     const handleClick = () => {
         firebase.logOutUser()
     }
+    const editProfil = () => {
+        if(!!userSession){
+            firebase.user(userSession.uid)
+        .get()
+        .then(doc =>{
+            if(doc && doc.exists){
+                const myData = doc.data()
+                console.log(myData.description)
+                //trouver comment modifier une valeur
+            }
+        })
+        .catch(error => {
+            console.log(error)
+        })
+        }
+
+    }
+
     useEffect(() => {
-        console.log(userData)
         let listner = firebase.auth.onAuthStateChanged(user => {
             user ? setUserSession(user) : props.history.push('/')
-        })
-
+        })           
         return () => {
             listner()
         }
-    }, [])
+    }, [userSession])
+    
 
     return (
         <>
@@ -49,17 +68,17 @@ const Profil = (props) => {
                                 <p>Membre depuis userDate</p>
                                 <p role="button" onClick={() => setIsEdit(true)} >Modifier le profil</p>
                                 <p className="h4">A propos de</p>
-                                <p className="fs-6 mb-4" style={{display : isEdit ? 'none' : 'block' }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam velit quaerat hic laboriosam et, doloremque rem reiciendis nisi ipsum animi consequatur natus recusandae eaque sint quibusdam voluptas consequuntur cupiditate cumque.</p>
+                                <p className="fs-6 mb-4" style={{display : isEdit ? 'none' : 'block' }}>{description == ''? 'aucune description' : description}</p>
                                 
                                 <div class="form-floating" style={{display : isEdit ? 'block' : 'none' }}>
-                                    <textarea className="form-control" placeholder="description" id="floatingTextarea" ></textarea>
+                                    <textarea className="form-control" placeholder="description" id="floatingTextarea" value={description} onChange={(e) => setdescription(e.target.value)} ></textarea>
                                     <label for="floatingTextarea">Decris toi en quelques mots...</label>
                                 </div>
 
                                 <div className="d-flex align-items-center mb-3"><HomeIcon  style={{ fontSize: 30, marginRight : 10 }}/> <p className="m-0">Habite à Paris, userPostion</p></div>
                                 <div className="d-flex align-items-center mb-4"><ChatBubbleIcon style={{ fontSize: 30, marginRight : 10 }}/> <p className="m-0">Langues : Anglais, Francais</p></div>
                                 <div className="d-flex justify-content-between" >
-                                    <button className="btn btn-primary" style={{display : isEdit ? 'block' : 'none' }}> Enregistrer </button>
+                                    <button className="btn btn-primary" style={{display : isEdit ? 'block' : 'none' }} onClick={editProfil}> Enregistrer </button>
                                     <button className="btn btn-secondary" style={{display : isEdit ? 'block' : 'none' }} onClick={() => setIsEdit(false)}> Annuler </button>
                                 </div>
                                 <hr/>
