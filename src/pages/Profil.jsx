@@ -45,8 +45,8 @@ const Profil = (props) => {
                                 <p>Membre depuis userDate</p>
                                 <p>Modifier le profil</p>
                                 <p className="h4">A propos de</p>
-                                <p className="fs-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam velit quaerat hic laboriosam et, doloremque rem reiciendis nisi ipsum animi consequatur natus recusandae eaque sint quibusdam voluptas consequuntur cupiditate cumque.</p>
-                                <div className="d-flex align-items-center mb-2"><HomeIcon  style={{ fontSize: 30, marginRight : 10 }}/> <p className="m-0">Habite à Paris, userPostion</p></div>
+                                <p className="fs-6 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam velit quaerat hic laboriosam et, doloremque rem reiciendis nisi ipsum animi consequatur natus recusandae eaque sint quibusdam voluptas consequuntur cupiditate cumque.</p>
+                                <div className="d-flex align-items-center mb-3"><HomeIcon  style={{ fontSize: 30, marginRight : 10 }}/> <p className="m-0">Habite à Paris, userPostion</p></div>
                                 <div className="d-flex align-items-center mb-4"><ChatBubbleIcon style={{ fontSize: 30, marginRight : 10 }}/> <p className="m-0">Langues : Anglais, Francais</p></div>
                                 <hr/>
                             </div>

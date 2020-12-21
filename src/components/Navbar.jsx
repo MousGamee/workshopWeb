@@ -12,6 +12,7 @@ const Navbar = (props) => {
     const firebase = useContext(FirebaseContext)
     const [userSession, setUserSession] = useState(null)
     const [userData, setUserData] = useState({})
+    const [menuIsOpen, setMenuIsOpen] = useState(false)
 
     const handleClick = () => {
         firebase.logOutUser()
@@ -45,7 +46,7 @@ const Navbar = (props) => {
     return (
         <>
             {/* navigation web */}
-            <nav className="d-none d-lg-block pt-2 shadow-sm position-fixed navbarWeb bg-white">
+            <nav className="d-none d-lg-block navbar  pt-2 shadow-sm position-fixed navbarWeb bg-white">
                 <div className="container d-flex justify-content-between align-items-center">
                     <Link to="/" className="logo">
                         <img src="img/logo-2.png" alt="" style={{ width: 150 }} />
@@ -58,11 +59,21 @@ const Navbar = (props) => {
                             {
                                 userSession ? (
                                     <>
-                                        <div class="dropdown ">
-                                            <AccountCircleIcon style={{ fontSize: 40, color: 'lightgrey' }} />
-                                            {/* <p>bonjour {userData.name} !</p>
-                                            <button className="btn btn-danger" onClick={handleClick}>deconnection</button> */}
-                                        </div>
+                                    <ul className="navbar-nav">
+                                       <li className="nav-item dropdown" onClick={() => setMenuIsOpen(!menuIsOpen)}>
+                                           <p className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                           <AccountCircleIcon className=""  style={{ fontSize: 40, color: 'lightgrey' }} />
+                                           </p>
+                                            <ul className="dropdown-menu hidden-menu p-1" aria-labelledby="navbarDropdown" style={{display : menuIsOpen ? 'block' : 'none'}}>
+                                                <li className="d-flex flex-column">
+                                                    <p className="dropdow-item p-1 d-block mb-2 h6">Bonjour {userData.name} !</p>
+                                                    <Link to="/Profil" className="dropdow-item p-1 d-block mb-2">Mon profil</Link>
+                                                    <Link to="/Favoris" className="dropdow-item p-1 d-block mb-2">Favoris</Link>
+                                                    <button className="btn btn-danger dropdow-item" onClick={handleClick}>deconnection</button> 
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                     </>
                                 )
                                     :

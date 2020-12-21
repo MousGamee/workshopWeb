@@ -65,3 +65,9 @@
     padding: 10px;
 
 }
+
+.hidden-menu{
+    position: absolute !important;
+    top: 79% !important;
+    left: -93px !important;
+}
