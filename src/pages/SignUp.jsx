@@ -18,7 +18,6 @@ const SignUp = (props) => {
 
     const [userData, setUserData] = useState(data)
     const [error, setError] = useState('')
-    console.log(userData)
 
     const handleChange = e => {
         setUserData({ ...userData, [e.target.id]: e.target.value })

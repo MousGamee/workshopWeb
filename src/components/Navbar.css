@@ -69,5 +69,6 @@
 .hidden-menu{
     position: absolute !important;
     top: 79% !important;
-    left: -93px !important;
-}
+    left: -224px !important;
+    min-width: 18rem !important;
+} 

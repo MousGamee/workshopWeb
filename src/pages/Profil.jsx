@@ -10,9 +10,9 @@ import './Profil.css'
 
 const Profil = (props) => {
     const firebase = useContext(FirebaseContext)
-    const { userData } = useContext(WorkshopContext)
-    const [userSession, setUserSession] = useState(null)
+    const { userData, userSession, setUserSession } = useContext(WorkshopContext)
     const [description, setdescription] = useState(userData.description)
+    const [userDate, setUserDate] = useState(new Date())
    
     const [isEdit, setIsEdit] = useState(false)
 
@@ -45,7 +45,7 @@ const Profil = (props) => {
             listner()
         }
     }, [userSession])
-    
+
 
     return (
         <>
@@ -65,7 +65,7 @@ const Profil = (props) => {
                         <div className="col-lg-9 col-md-8">
                             <div className="mt-3">
                                 <h2>Bonjour, moi c'est {userData.name}</h2>
-                                <p>Membre depuis userDate</p>
+                                <p>Membre depuis {!!userSession && userSession.metadata.creationTime}</p>
                                 <p role="button" onClick={() => setIsEdit(true)} >Modifier le profil</p>
                                 <p className="h4">A propos de</p>
                                 <p className="fs-6 mb-4" style={{display : isEdit ? 'none' : 'block' }}>{description == ''? 'aucune description' : description}</p>

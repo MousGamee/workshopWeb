@@ -36,7 +36,9 @@ class Firebase {
 
     user = uid => this.db.doc(`Users/${uid}`)
     
-    cours = () => this.db.doc('Cours/pGl9JiLAMlLlQHPrhApV')
+    cours = () => this.db.collection('Cours')
+
+    fireStore = () => app.firestore()
 }
 
 export default Firebase

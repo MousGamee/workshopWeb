@@ -15,7 +15,7 @@ import { WorkshopContext } from './firebase/workshopContext';
 const App = () => {
 
   const firebase = useContext(FirebaseContext)
-  const {userSession, setUserSession, userData, setUserData } = useContext(WorkshopContext)
+  const {userSession, setUserSession, setUserData } = useContext(WorkshopContext)
   
   useEffect(() => {
     let listner = firebase.auth.onAuthStateChanged(user => {

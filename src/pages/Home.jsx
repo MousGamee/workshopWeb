@@ -10,19 +10,27 @@ import { FirebaseContext } from '../firebase'
 
 const Home = () => {
     
-    const [userSession, setUserSession] = useState(true)
     const firebase = useContext(FirebaseContext)
+    const [homeClasse, setHomeClass] = useState([])
+   
     const [showNavbar,setShowNavbar] = useState(true)
 
+    const getHomeClasses = () => {
+        firebase.cours().onSnapshot((querySnapshot) => {
+            const items = []
+            querySnapshot.forEach((doc) => {
+                items.push(doc.data())
+                setHomeClass(items) 
+            })
+        })
+    }
     useEffect(() => {
-
-        return () => {
-            
-        }
+    
+        getHomeClasses()
 
     }, [])
 
-    return (
+    return ( 
         <>
             <Navbar showNavbar={showNavbar}/>
             <MobileSearchbar />
