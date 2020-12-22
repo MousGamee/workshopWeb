@@ -3,10 +3,12 @@ import './Home.css'
 import bkg from '../images/afroNationCover.jpg'
 import HomeCard from '../components/HomeCard'
 import { FirebaseContext } from '../firebase'
+import { Link } from 'react'
 
 const Landing = () => {
 
     const firebase = useContext(FirebaseContext)
+
     const [homeClasse, setHomeClass] = useState([])
    
     const getHomeClasses = () => {
@@ -37,12 +39,13 @@ const Landing = () => {
                         {
                             homeClasse.map(item => {
                                 return(
-                                    <HomeCard 
+                                     <HomeCard 
                                         key={item.id}
                                         title={item.title}
                                         studio={item.studio}
                                         teacher={item.teacher}
                                         description={item.description}
+                                        genre={item.genres}
                                     />
                                 )
                             })

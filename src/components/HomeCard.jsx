@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { WorkshopContext } from '../firebase/workshopContext'
+import './HomeCard.css'
 
-const HomeCard = ({ title, description, teacher, studio }) => {
+
+const HomeCard = ({ title, description, teacher, studio, genre }) => {
+    
+    const { genres } = useContext(WorkshopContext)
+
     return (
-        <div className="col-12 col-md-6 col-lg-4 classCard mb-2 rounded bg-white">
+        <div className="homeCard col-12 col-md-6 col-lg-4 classCard mb-2 rounded bg-white">
             <img src="img/image1.jpg" className="img-fluid p-1" alt="" />
             <div className="description p-2">
                 <div className="d-flex align-items-center justify-content-between">
@@ -11,8 +17,14 @@ const HomeCard = ({ title, description, teacher, studio }) => {
                 </div>
                 <span className="h6">{studio}</span>
                 <div className="categories mt-1 mb-2">
-                    <span class="badge bg-light text-dark mr-2">Afro</span>
-                    <span class="badge bg-light text-dark">Hip-hop</span>
+                    {
+                        genre.map((item) => {
+                            return(
+                            <span class="badge bg-light text-dark mr-2">{genres[item]}</span>
+                            )
+                        })
+                    }
+                    
                 </div>
                 <p className="mt-2">{description}</p>
             </div>

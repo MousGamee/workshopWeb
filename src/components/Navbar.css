@@ -6,6 +6,7 @@
     height: 65px;
     -webkit-box-shadow: 0px -5px 16px -7px rgba(0,0,0,0.2); 
     box-shadow: 0px -5px 16px -7px rgba(0,0,0,0.2);
+    z-index: 20;
 }
 
 .bottomTab{
@@ -53,6 +54,7 @@
 /***** web navbar ***/
 .navbarWeb {
     width: 100%;
+    z-index: 10;
 }
 
 .menu-profil {
@@ -66,9 +68,23 @@
 
 }
 
-.hidden-menu{
+.hidden-menu {
     position: absolute !important;
     top: 79% !important;
     left: -224px !important;
     min-width: 18rem !important;
 } 
+.hidden-menu li a {
+    color: rgb(12, 166, 218);
+    transition: .3s;
+}
+
+.hidden-menu li a:hover{
+    background: lightskyblue;
+    color: #fff;
+}
+
+.hidden-menu li a:active {
+    background: lightskyblue;
+    color: #fff;
+}

@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react'
+import { genres } from '../data'
 
 export const WorkshopContext = createContext()
 
@@ -11,7 +12,7 @@ const WorkshopContextProvider = ({ children }) => {
 
     return(
         <WorkshopContext.Provider value={{
-            userData, setUserData, userSession, setUserSession, isSearch, setIsSearch, query, setQuery
+            userData, setUserData, userSession, setUserSession, isSearch, setIsSearch, query, setQuery, genres
         }}>
             { children }
         </WorkshopContext.Provider>

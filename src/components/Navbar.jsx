@@ -43,6 +43,7 @@ const Navbar = ({showNavbar}) => {
                                                 <li className="d-flex flex-column">
                                                     <p className="dropdow-item p-1 d-block mb-2 h6">Bonjour {userData.name} !</p>
                                                     <Link to="/Profil" className="dropdow-item p-1 d-block mb-2">Mon profil</Link>
+                                                    <Link to="/" className="dropdow-item p-1 d-block mb-2">Recherche</Link>
                                                     <Link to="/Favoris" className="dropdow-item p-1 d-block mb-2">Favoris</Link>
                                                     <button className="btn btn-danger dropdow-item" onClick={handleClick}>deconnection</button> 
                                                 </li>
@@ -50,7 +51,7 @@ const Navbar = ({showNavbar}) => {
                                         </li>
                                     </ul>
                                     </>
-                                )
+                                    )
                                     :
                                     (<>
                                         <li><Link to="/Connection" className="btn btn-primary">Connection</Link></li>

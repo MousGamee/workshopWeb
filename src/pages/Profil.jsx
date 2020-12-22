@@ -61,7 +61,7 @@ const Profil = (props) => {
                         <div className="col-lg-3 col-md-4 profil-section border rounded-3 p-2 d-flex flex-column">
                             <div className="image-section align-self-center mb-4 mt-4">
                                 <img className="rounded-circle"src="./img/profil.jpg" alt=""/>
-                                <p role="button" className="mt-2 text-center"><ins>Mettre a jour <br />la photo</ins></p>
+                                <p role="button" className="mt-2 text-center text-muted"><ins>Mettre a jour <br />la photo</ins></p>
                             </div>
                             <div className="d-flex align-items-center mb-2"><StarOutlineIcon  style={{ fontSize: 30, marginRight : 10 }}/> <p className="m-0">10 classes favoris</p></div>
 
@@ -70,7 +70,7 @@ const Profil = (props) => {
                             <div className="mt-3">
                                 <h2>Bonjour, moi c'est {userData.name}</h2>
                                 <p>Membre depuis {!!userSession && userDate}</p>
-                                <p role="button" style={{display : isEdit ? 'none' : 'block' }} onClick={() => setIsEdit(true)} > <ins>Modifier le profil</ins></p>
+                                <p className="text-muted" role="button" style={{display : isEdit ? 'none' : 'block' }} onClick={() => setIsEdit(true)} > <ins>Modifier le profil</ins></p>
                                 <p className="h4">A propos de</p>
                                 <p className="fs-6 mb-4" style={{display : isEdit ? 'none' : 'block' }}>{description === ''? 'aucune description' : description}</p>
                                 
