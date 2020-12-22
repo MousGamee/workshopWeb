@@ -38,7 +38,7 @@ const ForgotPassword = (props) => {
                         <form className="col-lg-6" onSubmit={handleSubmit}>
                             <h2> Mot de passe oublié ? </h2>
                             {
-                                succes == '' ? (
+                                succes === '' ? (
                                     <>
                                         {error && <div class="alert alert-danger" role="alert">{error.message}</div>}
                                         <p className="text-center mt-4 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. oribus nesciunt soluta officiis quod quis est ipsa. Illo.</p>

@@ -1,6 +1,7 @@
 import app from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
+import 'firebase/storage'
 
 const config = {    
         apiKey: "AIzaSyDRWnp3x-FaYL8VDBmB0tQS4Ry1ZUnQEPE",
@@ -18,6 +19,7 @@ class Firebase {
         app.initializeApp(config)
         this.auth = app.auth()
         this.db = app.firestore()
+        this.storage = app.storage()
     }
 
     //inscription
@@ -38,7 +40,7 @@ class Firebase {
     
     cours = () => this.db.collection('Cours')
 
-    fireStore = () => app.firestore()
+    getImage = url => this.storage.ref(url)
 }
 
 export default Firebase

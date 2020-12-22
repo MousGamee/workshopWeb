@@ -15,7 +15,7 @@ const SignIn = (props) => {
     useEffect(() => {
         if (mdp !== '' && email !== '') {
             setBtn(true)
-        } else if (mdp == '' && email == '') {
+        } else if (mdp === '' && email === '') {
             setBtn(false)
         }
     }, [email, mdp])

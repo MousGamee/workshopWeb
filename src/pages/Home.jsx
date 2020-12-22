@@ -25,10 +25,9 @@ const Home = () => {
             console.log(homeClasse)
         })
     }
-    useEffect(() => {
-    
-        getHomeClasses()
 
+    useEffect(() => {
+        getHomeClasses()
     }, [])
 
     return ( 
@@ -48,6 +47,7 @@ const Home = () => {
                             homeClasse.map(item => {
                                 return(
                                     <HomeCard 
+                                        key={item.id}
                                         title={item.title}
                                         studio={item.studio}
                                         teacher={item.teacher}
