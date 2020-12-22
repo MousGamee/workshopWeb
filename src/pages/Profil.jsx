@@ -12,8 +12,8 @@ const Profil = (props) => {
     const firebase = useContext(FirebaseContext)
     const { userData, userSession, setUserSession } = useContext(WorkshopContext)
     const [description, setdescription] = useState(userData.description)
-    const [userDate, setUserDate] = useState(new Date())
-   
+    const [userDate, setUserDate] = useState(null)
+
     const [isEdit, setIsEdit] = useState(false)
 
     const handleClick = () => {
@@ -38,14 +38,18 @@ const Profil = (props) => {
     }
 
     useEffect(() => {
+    
         let listner = firebase.auth.onAuthStateChanged(user => {
             user ? setUserSession(user) : props.history.push('/')
-        })           
+        })
+        if(!!userSession){
+            setUserDate(new Date(userSession.metadata.creationTime).toLocaleDateString())
+
+        }           
         return () => {
             listner()
         }
     }, [userSession])
-
 
     return (
         <>
@@ -57,7 +61,7 @@ const Profil = (props) => {
                         <div className="col-lg-3 col-md-4 profil-section border rounded-3 p-2 d-flex flex-column">
                             <div className="image-section align-self-center mb-4 mt-4">
                                 <img className="rounded-circle"src="./img/profil.jpg" alt=""/>
-                                <p className="mt-2">mettre a jour la photo</p>
+                                <p role="button" className="mt-2 text-center"><ins>Mettre a jour <br />la photo</ins></p>
                             </div>
                             <div className="d-flex align-items-center mb-2"><StarOutlineIcon  style={{ fontSize: 30, marginRight : 10 }}/> <p className="m-0">10 classes favoris</p></div>
 
@@ -65,18 +69,20 @@ const Profil = (props) => {
                         <div className="col-lg-9 col-md-8">
                             <div className="mt-3">
                                 <h2>Bonjour, moi c'est {userData.name}</h2>
-                                <p>Membre depuis {!!userSession && userSession.metadata.creationTime}</p>
-                                <p role="button" onClick={() => setIsEdit(true)} >Modifier le profil</p>
+                                <p>Membre depuis {!!userSession && userDate}</p>
+                                <p role="button" style={{display : isEdit ? 'none' : 'block' }} onClick={() => setIsEdit(true)} > <ins>Modifier le profil</ins></p>
                                 <p className="h4">A propos de</p>
-                                <p className="fs-6 mb-4" style={{display : isEdit ? 'none' : 'block' }}>{description == ''? 'aucune description' : description}</p>
+                                <p className="fs-6 mb-4" style={{display : isEdit ? 'none' : 'block' }}>{description === ''? 'aucune description' : description}</p>
                                 
                                 <div class="form-floating" style={{display : isEdit ? 'block' : 'none' }}>
-                                    <textarea className="form-control" placeholder="description" id="floatingTextarea" value={description} onChange={(e) => setdescription(e.target.value)} ></textarea>
+                                    <textarea 
+                                        style={{height : 100}}
+                                        className="form-control mb-4" placeholder="description" id="floatingTextarea" value={description} onChange={(e) => setdescription(e.target.value)} ></textarea>
                                     <label for="floatingTextarea">Decris toi en quelques mots...</label>
                                 </div>
 
-                                <div className="d-flex align-items-center mb-3"><HomeIcon  style={{ fontSize: 30, marginRight : 10 }}/> <p className="m-0">Habite à Paris, userPostion</p></div>
-                                <div className="d-flex align-items-center mb-4"><ChatBubbleIcon style={{ fontSize: 30, marginRight : 10 }}/> <p className="m-0">Langues : Anglais, Francais</p></div>
+                                {/* <div className="d-flex align-items-center mb-3"><HomeIcon  style={{ fontSize: 30, marginRight : 10 }}/> <p className="m-0">Habite à Paris, userPostion</p></div>
+                                <div className="d-flex align-items-center mb-4"><ChatBubbleIcon style={{ fontSize: 30, marginRight : 10 }}/> <p className="m-0">Langues : Anglais, Francais</p></div> */}
                                 <div className="d-flex justify-content-between" >
                                     <button className="btn btn-primary" style={{display : isEdit ? 'block' : 'none' }} onClick={editProfil}> Enregistrer </button>
                                     <button className="btn btn-secondary" style={{display : isEdit ? 'block' : 'none' }} onClick={() => setIsEdit(false)}> Annuler </button>
