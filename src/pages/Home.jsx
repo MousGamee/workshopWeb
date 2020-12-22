@@ -20,8 +20,9 @@ const Home = () => {
             const items = []
             querySnapshot.forEach((doc) => {
                 items.push(doc.data())
-                setHomeClass(items) 
             })
+            setHomeClass(items) 
+            console.log(homeClasse)
         })
     }
     useEffect(() => {
@@ -43,11 +44,18 @@ const Home = () => {
                 <div className="container">
                     <div className="row">
 
-                        <HomeCard />
-                        <HomeCard />
-                        <HomeCard />
-                        <HomeCard />
-                        <HomeCard />
+                        {
+                            homeClasse.map(item => {
+                                return(
+                                    <HomeCard 
+                                        title={item.title}
+                                        studio={item.studio}
+                                        teacher={item.teacher}
+                                        description={item.description}
+                                    />
+                                )
+                            })
+                        }
 
                     </div>
                 </div>
