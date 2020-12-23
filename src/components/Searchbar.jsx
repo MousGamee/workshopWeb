@@ -15,6 +15,9 @@ const Searchbar = () => {
 
     const handleChange = e => {
        setQuery(e.target.value)
+       if(query !== ''){
+           setIsSearch(true)
+       }
     }
 
     const handleBack = () => {
