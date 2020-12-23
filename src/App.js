@@ -10,6 +10,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import Profil from './pages/Profil';
 import { FirebaseContext } from './firebase';
 import { WorkshopContext } from './firebase/workshopContext';
+import ClasseDetails from './pages/ClasseDetails';
 
 
 const App = () => {
@@ -50,6 +51,7 @@ const App = () => {
           <Route path="/Inscritpion" component={SignUp} />
           <Route path="/Favoris" component={Favoris} />
           <Route path="/Profil" component={Profil} />
+          <Route path="/:id" component={ClasseDetails} />
           <Route path="/Mot-de-passe-oublie" component={ForgotPassword} />
           <Route component={Page404} />
         </Switch>

@@ -35,12 +35,12 @@ const Landing = () => {
             <div className="currentClass">
                 <div className="container">
                     <div className="row">
-
                         {
-                            homeClasse.map(item => {
+                            homeClasse.map((item, i) => {
                                 return(
-                                     <HomeCard 
-                                        key={item.id}
+                                     <HomeCard
+                                        key={i}
+                                        id={item.id}
                                         title={item.title}
                                         studio={item.studio}
                                         teacher={item.teacher}

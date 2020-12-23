@@ -39,6 +39,7 @@ const SearchResult = () => {
                         .map((item) => {
                         return(
                             <HomeCard 
+                            id={item.id}
                             key={item.id}
                             title={item.title}
                             studio={item.studio}

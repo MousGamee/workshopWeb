@@ -40,6 +40,8 @@ class Firebase {
     
     cours = () => this.db.collection('Cours')
 
+    getClasseDetails = id => this.db.doc(`Cours/${id}`)
+
     getImage = url => this.storage.ref(url)
 }
 
