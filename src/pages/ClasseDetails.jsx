@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Footer from '../components/Footer'
-import MobileSearchbar from '../components/MobileSearchbar'
 import Navbar from '../components/Navbar'
 import { FirebaseContext } from '../firebase'
 import './ClasseDetails.css'
@@ -28,12 +27,11 @@ const ClasseDetails = ({match}) => {
     return (
         <>
             <Navbar />
-            <MobileSearchbar/>
+          
             <div className="container paddingNavbar">
                 <p>{detailClasse.title}</p>
             </div>
             <Footer />
-            
         </>
     )
 }
