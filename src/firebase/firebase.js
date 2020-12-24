@@ -36,13 +36,15 @@ class Firebase {
     //mot de passe oublié
     forgotPassword = email => this.auth.sendPasswordResetEmail(email)
 
+    //utilisateur
     user = uid => this.db.doc(`Users/${uid}`)
     
+    //recupere les cours
     cours = () => this.db.collection('Cours')
-
+    
+    //recupere le detail d'une seule classe
     getClasseDetails = id => this.db.doc(`Cours/${id}`)
 
     getImage = url => this.storage.ref(url)
 }
-
 export default Firebase

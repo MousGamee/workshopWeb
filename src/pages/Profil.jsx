@@ -67,7 +67,7 @@ const Profil = (props) => {
 
                         </div>
                         <div className="col-lg-9 col-md-8">
-                            <div className="mt-3">
+                            <div className="mt-3 p-4">
                                 <h2>Bonjour, moi c'est {userData.name}</h2>
                                 <p>Membre depuis {!!userSession && userDate}</p>
                                 <p className="text-muted" role="button" style={{display : isEdit ? 'none' : 'block' }} onClick={() => setIsEdit(true)} > <ins>Modifier le profil</ins></p>
